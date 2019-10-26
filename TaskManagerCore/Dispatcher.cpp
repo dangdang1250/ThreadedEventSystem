@@ -1,7 +1,6 @@
 #include "Dispatcher.h"
 
 #include <thread>
-#include <Windows.h>
 
 bool inited;
 

@@ -7,6 +7,7 @@
 #include <list>
 
 #include "Subscriber.h"
+extern void Sleep(unsigned milliseconds);
 
 //Some Event ID's
 const enum Events {

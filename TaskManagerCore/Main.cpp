@@ -2,17 +2,40 @@
 
 #include "Dispatcher.h"
 #include "GameThing.h"
+#include <chrono>
+#include <ctime>
 
-#include <Windows.h> // for Sleep
+//#include <Windows.h> // for Sleep
+#ifdef _WIN32
+    #include <Windows.h>
+
+    void sleep(unsigned milliseconds)
+    {
+        Sleep(milliseconds);
+    }
+#else
+    #include <unistd.h>
+
+    void Sleep(unsigned milliseconds)
+    {
+        usleep(milliseconds * 1000); // takes microseconds
+    }
+#endif
+
 #pragma comment(lib, "Winmm.lib")
 
 
 double deltaTime = 5.0;
 
-int main(char* argc, int argsv) {
+int main(int argc, char* argv[]) {
 	Dispatcher::Initialize();
 
+	#ifdef _WIN32
 	srand(timeGetTime());
+	#else
+	//auto start = std::chrono::system_clock::now();
+	srand(time(0));
+	#endif
 
 
 	//Add some game objects to a list
