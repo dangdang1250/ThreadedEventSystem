@@ -3,3 +3,5 @@ TaskManagerCore/Debug
 TaskManagerCore.sdf
 TaskManagerCore.opensdf
 TaskManagerCore.v*
+
+build/
